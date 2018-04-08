@@ -6,11 +6,9 @@ import {login} from '../../actions/auth';
 
 
 class LoginPage extends React.Component
-{ submit=data=>
-  {
-   console.log('/src/comp/pages/loginpage-data',data)
-   this.props.login(data).then(()=>this.props.history.push("/"));  //this will return promise--then we go to home page after login is correct
-  };
+{ 
+  submit = data => this.props.login(data).then(() => this.props.history.push("/")); //this will return promise--then we go to home page after login is correct
+//---it will go to login form and---onSubmit function
   render()
   { return(  <div> <h1>Login Page</h1>{console.log('/src/components/Pages/LoginPage.js-inside render')}
              <LoginForm submit={this.submit}/>

@@ -35,5 +35,6 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "prettier": "^1.11.1"
-  }
+  },
+  "proxy" :"http://127.0.0.1:8080"
 }
