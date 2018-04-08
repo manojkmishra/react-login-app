@@ -7,6 +7,9 @@ export const userLoggedIn = user =>
 
 //thunk actions
 export const login = credentials => dispatch =>
-    api.user.login(credentials).then(user => dispatch(userLoggedIn(user)));
+  api.user.login(credentials).then(user => {
+    localStorage.bookwormJWT = user.token;
+    dispatch(userLoggedIn(user));
+});
       
     
