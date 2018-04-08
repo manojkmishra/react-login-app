@@ -28,9 +28,11 @@ class LoginForm extends React.Component {
       this.props
         .submit(this.state.data)  //here it will go to api in auth.js---then go to loginpage.js--and below code excutes--then go to home page
                                   // submit = data => this.props.login(data).then(() => this.props.history.push("/"));
+                                  //types was written in place of type----store redux value checked in auth.js
         .catch(err => this.setState({ errors: err.response.data.errors, loading: false })    );
     }
   };
+
 
   validate = data => {
     const errors = {};
