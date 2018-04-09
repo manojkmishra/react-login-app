@@ -6,15 +6,15 @@ export const userLoggedOut = () => ({   type: USER_LOGGED_OUT   });
 
 //thunk actions
 export const login = credentials => dispatch =>
-  api.user.login(credentials).then(user => {
-    localStorage.bookwormJWT = user.token;
-    dispatch(userLoggedIn(user));
-});
+  api.user.login(credentials).then(user => 
+    {    localStorage.bookwormJWT = user.token;
+         dispatch(userLoggedIn(user));
+    });
 
-export const logout = () => dispatch => {
-    localStorage.removeItem("bookwormJWT");
+export const logout = () => dispatch => 
+{  localStorage.removeItem("bookwormJWT");
  
     dispatch(userLoggedOut());
-  };
+ };
       
     

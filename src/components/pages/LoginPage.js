@@ -4,25 +4,21 @@ import { connect } from "react-redux";
  import LoginForm from "../forms/LoginForm";
 import { login } from "../../actions/auth";
  
- class LoginPage extends React.Component {
-  submit = data => this.props.login(data).then(() => this.props.history.push("/"));
- 
-   render() {
-     return (
-       <div>
-         <h1>Login page</h1>
- 
-         <LoginForm submit={this.submit} />
-       </div>
-     );
-   }
+ class LoginPage extends React.Component 
+ {  submit = data => this.props.login(data).then(() => this.props.history.push("/dashboard"));
+    //here after data is submit to loginform--then login is done and dashboard page is pushed
+    
+    render() 
+    {  return ( <div> <h1>Login page</h1>
+                     <LoginForm submit={this.submit} />
+                </div>
+              );
+    }
  }
  
 
-LoginPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  }).isRequired,
+LoginPage.propTypes = 
+{ history: PropTypes.shape({ push: PropTypes.func.isRequired  }).isRequired,
   login: PropTypes.func.isRequired
 };
 

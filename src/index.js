@@ -1,3 +1,4 @@
+//----main input file-------create store-----
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -11,10 +12,8 @@ import rootReducer from "./rootReducer";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { userLoggedIn } from "./actions/auth";
 
-
-
-
 const store=createStore( rootReducer , composeWithDevTools(applyMiddleware(thunk)));
+
 if (localStorage.bookwormJWT) 
 {   const user = {token: localStorage.bookwormJWT};
     store.dispatch(userLoggedIn(user));
