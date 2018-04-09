@@ -1,7 +1,7 @@
 //----main input file-------create store-----
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter , Route} from 'react-router-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'semantic-ui-css/semantic.min.css'; //css
@@ -16,12 +16,17 @@ const store=createStore( rootReducer , composeWithDevTools(applyMiddleware(thunk
 
 if (localStorage.bookwormJWT) 
 {   const user = {token: localStorage.bookwormJWT};
+    console.log('src/index.js-send to store- user = token: localStorage.bookwormJWT=',user);
+    //console.log('location=',Rout);
     store.dispatch(userLoggedIn(user));
 }
 
+//---dont touch below lines---App has to be in diff line
 ReactDOM.render(  <BrowserRouter> 
-                  <Provider store={store}><App /></Provider>
-                  </BrowserRouter>, 
+                                <Provider store={store}> 
+                                          <Route component={App} />
+                                 </Provider> 
+                   </BrowserRouter>, 
                   document.getElementById('root')
                );
 registerServiceWorker();

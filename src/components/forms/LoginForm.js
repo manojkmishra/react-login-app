@@ -26,15 +26,15 @@ class LoginForm extends React.Component
   };
 
 
-  validate = data => {
-    const errors = {};
+  validate = data => 
+  { const errors = {};
     if (!Validator.isEmail(data.email)) errors.email = "Invalid email";
     if (!data.password) errors.password = "Can't be blank";
     return errors;
   };
 
-  render() {
-    const { data, errors, loading } = this.state;
+  render() 
+  { const { data, errors, loading } = this.state;
 
     return (
       <Form onSubmit={this.onSubmit} loading={loading}>
