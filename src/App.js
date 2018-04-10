@@ -9,6 +9,7 @@ import UserRoute from "./components/routes/UserRoute"; //-----applicable to page
 import GuestRoute from "./components/routes/GuestRoute";
 import PropTypes from "prop-types";
 import SignupPage from "./components/pages/SignupPage";
+import ConfirmationPage from "./components/pages/ConfirmationPage"; //----after new user signup
 
 //console.log('location=',path);
 const App = ({ location}) => (
@@ -17,6 +18,7 @@ const App = ({ location}) => (
     <GuestRoute  location={location} path="/login" exact component ={LoginPage} />
     <UserRoute  location={location} path="/dashboard"   exact   component={DashboardPage} />
     <GuestRoute location={location} path="/signup"  exact  component={SignupPage}   />
+    <Route location={location}  path="/confirmation/:token"  exact component={ConfirmationPage}/>
   </div>
   );
   

@@ -11,11 +11,13 @@ import thunk from 'redux-thunk'; //for async request to server and actions
 import rootReducer from "./rootReducer";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { userLoggedIn } from "./actions/auth";
+import decode from "jwt-decode";
 
 const store=createStore( rootReducer , composeWithDevTools(applyMiddleware(thunk)));
 
 if (localStorage.bookwormJWT) 
-{   const user = {token: localStorage.bookwormJWT};
+{   const payload = decode(localStorage.bookwormJWT);
+    const user = {token: localStorage.bookwormJWT,  email: payload.email, confirmed: payload.confirmed};
     console.log('src/index.js-send to store- user = token: localStorage.bookwormJWT=',user);
     //console.log('location=',Rout);
     store.dispatch(userLoggedIn(user));
