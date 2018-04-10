@@ -8,6 +8,7 @@ import DashboardPage from "./components/pages/DashboardPage";
 import UserRoute from "./components/routes/UserRoute"; //-----applicable to pages where its applied
 import GuestRoute from "./components/routes/GuestRoute";
 import PropTypes from "prop-types";
+import SignupPage from "./components/pages/SignupPage";
 
 //console.log('location=',path);
 const App = ({ location}) => (
@@ -15,6 +16,7 @@ const App = ({ location}) => (
     <Route  location={location} path="/" exact component ={HomePage} />  
     <GuestRoute  location={location} path="/login" exact component ={LoginPage} />
     <UserRoute  location={location} path="/dashboard"   exact   component={DashboardPage} />
+    <GuestRoute location={location} path="/signup"  exact  component={SignupPage}   />
   </div>
   );
   
