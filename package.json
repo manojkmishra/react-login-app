@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "eslint": "^3.19.0",
+    "gravatar-url": "^2.0.0",
     "jwt-decode": "^2.2.0",
     "mongoose-unique-validator": "^2.0.0",
     "prop-types": "^15.6.1",
