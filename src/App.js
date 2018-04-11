@@ -10,15 +10,21 @@ import GuestRoute from "./components/routes/GuestRoute";
 import PropTypes from "prop-types";
 import SignupPage from "./components/pages/SignupPage";
 import ConfirmationPage from "./components/pages/ConfirmationPage"; //----after new user signup
+import ForgotPasswordPage from "./components/pages/ForgotPasswordPage";
+import ResetPasswordPage from "./components/pages/ResetPasswordPage";
+
 
 //console.log('location=',path);
 const App = ({ location}) => (
   <div className="ui container"> 
+ 
     <Route  location={location} path="/" exact component ={HomePage} />  
     <GuestRoute  location={location} path="/login" exact component ={LoginPage} />
     <UserRoute  location={location} path="/dashboard"   exact   component={DashboardPage} />
     <GuestRoute location={location} path="/signup"  exact  component={SignupPage}   />
     <Route location={location}  path="/confirmation/:token"  exact component={ConfirmationPage}/>
+    <GuestRoute  location={location}  path="/forgot_password"  exact  component={ForgotPasswordPage} />
+    <GuestRoute   location={location} path="/reset_password/:token"  exact component={ResetPasswordPage}/>
   </div>
   );
   
