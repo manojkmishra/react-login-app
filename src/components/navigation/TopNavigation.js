@@ -7,16 +7,9 @@ import gravatarUrl from "gravatar-url";
 import * as actions from "../../actions/auth";
 
 
-const TopNavigation = ({ user, logout, hasBooks }) => (
-  <Menu secondary pointing>
-    <Menu.Item as={Link} to="/dashboard">
-      Dashboard
-    </Menu.Item>
-    {hasBooks && (
-      <Menu.Item as={Link} to="/books/new">
-        Add New Book
-      </Menu.Item>
-    )}
+const TopNavigation = ({ user, logout, hasBooks }) => 
+(  <Menu secondary pointing> <Menu.Item as={Link} to="/dashboard"> Dashboard </Menu.Item>
+    {hasBooks && ( <Menu.Item as={Link} to="/books/new"> Add New Book </Menu.Item>  )}
 
     <Menu.Menu position="right">
       <Dropdown trigger={<Image avatar src={gravatarUrl(user.email)} />}>
@@ -28,21 +21,12 @@ const TopNavigation = ({ user, logout, hasBooks }) => (
   </Menu>
 );
 
-TopNavigation.propTypes = {
-  user: PropTypes.shape({
-    email: PropTypes.string.isRequired
-  }).isRequired,
-  hasBooks: PropTypes.bool.isRequired,
+TopNavigation.propTypes = 
+{ user: PropTypes.shape({ email: PropTypes.string.isRequired  }).isRequired,
+ // hasBooks: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    user: state.user,
-  
-  };
-}
+function mapStateToProps(state) {  return {    user: state.user,  };}
 
-export default connect(mapStateToProps, { logout: actions.logout })(
-  TopNavigation
-);
+export default connect(mapStateToProps, { logout: actions.logout })(  TopNavigation );

@@ -14,6 +14,7 @@ import ForgotPasswordPage from "./components/pages/ForgotPasswordPage";
 import ResetPasswordPage from "./components/pages/ResetPasswordPage";
 import TopNavigation from "./components/navigation/TopNavigation";
 import { connect } from "react-redux";
+//import NewBookPage from "./components/pages/NewBookPage";
 
 
 //console.log('location=',path);
@@ -27,6 +28,7 @@ const App = ({ location, isAuthenticated }) => (
     <Route location={location}  path="/confirmation/:token"  exact component={ConfirmationPage}/>
     <GuestRoute  location={location}  path="/forgot_password"  exact  component={ForgotPasswordPage} />
     <GuestRoute   location={location} path="/reset_password/:token"  exact component={ResetPasswordPage}/>
+
   </div>
   );
   
