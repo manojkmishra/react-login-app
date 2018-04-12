@@ -8,7 +8,7 @@ import AddBookCtA from "../ctas/AddBookCtA";
 //books: allBooksSelector(state) in fn mapstatetoprops--should be an array---
 //---then we check its length--books.length === 0 if its 0---then we addbookcta
 const DashboardPage = ({isConfirmed, books}) => 
-(    <div>    {!isConfirmed && <ConfirmEmailMessage />}  {books.length === 0 ? <AddBookCtA /> : <p>You have books!</p>}  </div>  );
+(    <div>    {!isConfirmed && <ConfirmEmailMessage />}  { books.length === 0 && <AddBookCtA /> }  </div>  );
 
 DashboardPage.propTypes = {  isConfirmed: PropTypes.bool.isRequired ,
                              books: PropTypes.arrayOf( PropTypes.shape({ title: PropTypes.string.isRequired  }).isRequired
