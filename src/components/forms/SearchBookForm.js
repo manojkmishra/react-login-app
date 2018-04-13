@@ -11,11 +11,16 @@ class SearchBookForm extends React.Component
     books: {}  };
    onSearchChange = (e, data) => 
    {  clearTimeout(this.timer);
-      this.setState({ query: data });
+      this.setState({ query: data.searchQuery });
+      console.log('onsearchchange before setstate data.value',this.state.query); 
       this.timer = setTimeout(this.fetchOptions, 1000);
    };
 
-  onChange = (e, data) => {  this.setState({ query: data.value }); this.props.onBookSelect(this.state.books[data.value]); };
+   onChange = (e, data) => 
+   {
+    this.setState({ query: data.value });
+    this.props.onBookSelect(this.state.books[data.value]);
+    };
 
  fetchOptions = () => 
  { if (!this.state.query) return;  
