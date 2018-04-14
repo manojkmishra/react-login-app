@@ -57,7 +57,7 @@ class BookForm extends React.Component   //this data is same as proptype book de
     return (
       <Segment>
         <Form onSubmit={this.onSubmit} loading={loading}>
-          <Grid columns={2} fluid stackable>
+          <Grid columns={2} stackable>
             <Grid.Row>
               <Grid.Column>
                 <Form.Field error={!!errors.title}>
@@ -74,7 +74,7 @@ class BookForm extends React.Component   //this data is same as proptype book de
 
                 <Form.Field error={!!errors.pages}>
                   <label htmlFor="pages">Pages</label>
-                  <input type="number" id="pages" name="pages" value={data.pages} onChange={this.onChangeNumber} />
+                  <input disabled={data.pages === undefined} type="text" id="pages" name="pages" value={data.pages !== undefined ? data.pages : "Loading..."} onChange={this.onChangeNumber} />
                   {errors.pages && <InlineError text={errors.pages} />}
                 </Form.Field>
               </Grid.Column>
@@ -97,7 +97,9 @@ BookForm.propTypes =
   book: PropTypes.shape(     //this book is coming from server--routes/books.js---so all fields of books should be here
       {     goodreadsId: PropTypes.string.isRequired, //---in data----same thing is required
             title: PropTypes.string.isRequired,     authors: PropTypes.string.isRequired,
-            covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,   pages: PropTypes.number.isRequired
+            covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,   
+            pages: PropTypes.number
+            //.isRequired
       }).isRequired
 };
 
